@@ -4,11 +4,13 @@ async function my_post(event) {
 
     const restletid = document.getElementById('input-restletid').value;
     const token = document.getElementById('input-tokenid').value;
-    const url = `https://driver01.azurewebsites.net?restletid=${restletid}&token=${token}`;
+    const url = `https://driver01.azurewebsites.net`;
 
     let inputFile = document.querySelector('input[type="file"]');
 
     let formData = new FormData();
+    formData.append('restletid', restletid);
+    formData.append('token', token);
     formData.append('firstname', 'John');
     formData.append('lastname', 'Doe');
     formData.append('file', inputFile.files[0])
